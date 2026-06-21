@@ -2,6 +2,8 @@
 
 > A documentation Q&A assistant that **cites its sources or honestly refuses** — and scores the refusing as a first-class eval.
 
+![cite-or-refuse demo — answers with a source, refuses when the docs don't cover it, and scores refusals as a first-class eval](cite-or-refuse-demo.gif)
+
 The most common way a RAG system fails in production isn't a wrong answer — it's a
 **confident hallucination**: a fluent reply to a question the documents don't actually
 answer. `cite-or-refuse` is a small, readable reference implementation that treats *"I
