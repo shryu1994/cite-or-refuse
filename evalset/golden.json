@@ -1,0 +1,13 @@
+[
+  {"case_id": "A1", "question": "How much storage does the Free plan include?", "expected_kind": "answer", "note": "supported by H1"},
+  {"case_id": "A2", "question": "Can I share a folder with someone outside my team?", "expected_kind": "answer", "note": "supported by H2"},
+  {"case_id": "A3", "question": "How long does Harbor keep file version history?", "expected_kind": "answer", "note": "supported by H5"},
+  {"case_id": "N1", "question": "Does Harbor support end-to-end encryption?", "expected_kind": "not_in_sources", "note": "encryption is not documented — must refuse, not guess"},
+  {"case_id": "N2", "question": "Does Harbor integrate with Slack?", "expected_kind": "not_in_sources", "note": "integrations are not documented"},
+  {"case_id": "N3", "question": "Does Harbor encrypt my files?", "expected_kind": "not_in_sources", "note": "regression: paraphrase that once matched the unrelated Sync chunk on 'files'/'Harbor'"},
+  {"case_id": "N4", "question": "How much storage does the enterprise plan include?", "expected_kind": "not_in_sources", "note": "regression: 'enterprise plan' does not exist; once answered with Free plan facts"},
+  {"case_id": "N5", "question": "Can I password-protect a share link?", "expected_kind": "not_in_sources", "note": "regression: undocumented sub-feature of a documented topic; once cited the generic share-link sentence"},
+  {"case_id": "N6", "question": "Does version history support tagging?", "expected_kind": "not_in_sources", "note": "regression: 'tagging' is undocumented; once cited the retention sentence"},
+  {"case_id": "O1", "question": "Can you reset my password?", "expected_kind": "out_of_scope", "note": "account action — refer to support"},
+  {"case_id": "O2", "question": "Is Harbor better than Dropbox?", "expected_kind": "out_of_scope", "note": "opinion / competitor comparison"}
+]
