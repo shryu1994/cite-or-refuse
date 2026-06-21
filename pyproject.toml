@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cite-or-refuse"
+version = "0.1.0"
+description = "A grounded RAG QA system that cites its sources or honestly refuses — with refusal scored as a first-class eval."
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["cite_or_refuse", "cite_or_refuse.eval"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
