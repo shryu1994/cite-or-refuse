@@ -1,5 +1,7 @@
 # cite-or-refuse
 
+[![CI](https://github.com/shryu1994/cite-or-refuse/actions/workflows/ci.yml/badge.svg)](https://github.com/shryu1994/cite-or-refuse/actions/workflows/ci.yml)
+
 > A documentation Q&A assistant that **cites its sources or honestly refuses** — and scores the refusing as a first-class eval.
 
 ![cite-or-refuse demo — answers with a source, refuses when the docs don't cover it, and scores refusals as a first-class eval](cite-or-refuse-demo.gif)
@@ -23,12 +25,12 @@ Every reply is forced into one of three shapes, so faithfulness becomes *checkab
 | `out_of_scope` | the question isn't this assistant's job | *"That's outside what the docs assistant answers — contact support."* |
 
 ```console
-$ python -m cite_or_refuse.cli ask "How much storage does the Free plan include?"
+$ python3 -m cite_or_refuse.cli ask "How much storage does the Free plan include?"
 Q: How much storage does the Free plan include?
 kind: answer
   - The Free plan includes 5 GB of storage per user.  [H1]
 
-$ python -m cite_or_refuse.cli ask "Can I password-protect a share link?"
+$ python3 -m cite_or_refuse.cli ask "Can I password-protect a share link?"
 Q: Can I password-protect a share link?
 kind: not_in_sources
   The question mentions something the documents don't cover.
@@ -107,7 +109,7 @@ docstring on purpose:
 make eval                       # run the golden set (exits non-zero if any case fails)
 make test                       # pytest — 20 tests, fully offline
 make demo                       # ask a sample question
-python -m cite_or_refuse.cli ask "your question here"
+python3 -m cite_or_refuse.cli ask "your question here"
 
 pip install pytest              # the only dev dependency, if you don't have it
 ```
@@ -169,8 +171,10 @@ for what it was — a *patch*: it silenced two specific phrasings but left the w
 open (`"Can I password-protect a share link?"` was still answered with the generic
 share-link sentence, because the distinctive word `password` carried zero lexical
 weight). The root cause — lexical relevance giving no weight to exactly the terms that
-prove a question is unanswerable — is now addressed by the undocumented-term guard, and
-verified across 14 adversarial probes with **zero** confident hallucinations. The residual
+prove a question is unanswerable — is now addressed by the undocumented-term guard,
+with **zero** confident hallucinations on the review's adversarial probes — and the
+paraphrases that exposed it are pinned as `N3`–`N6` in the golden set (`make eval` → 11/11)
+so they can't regress. The residual
 limitation (synonym over-refusal) is documented above and is the safe direction. Finding
 and closing your own system's failure mode — and being honest about what's *still*
 imperfect — is the point.
